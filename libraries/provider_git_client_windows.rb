@@ -31,7 +31,7 @@ class Chef
             block do
               ENV['PATH'] += ";#{GIT_PATH}"
             end
-            not_if { ENV['PATH'] =~ /GIT_PATH/ }
+            not_if { ENV['PATH'].match(Regexep.escape(GIT_PATH)) }
             action :nothing
           end
 
